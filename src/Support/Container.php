@@ -130,7 +130,7 @@ class Container
         };
 
         $this->services['managers.tasks'] = function (Container $container) {
-            return new TagManager(
+            return new TaskManager(
                 $container->getParameter('api_token'),
                 $container->get('adapters.task')
             );
