@@ -41,13 +41,13 @@ abstract class BaseManager
      *
      * @param string $apiKey
      */
-    public function __construct($apiKey)
+    public function __construct($apiKey, $apiSecret = 'api_token')
     {
         $this->apiKey = $apiKey;
 
         $this->client = new HttpClient([
             'base_uri' => $this->host,
-            RequestOptions::AUTH => [$this->apiKey, 'api_token']
+            RequestOptions::AUTH => [$this->apiKey, $apiSecret]
         ]);
     }
 
